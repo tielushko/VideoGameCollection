@@ -1,0 +1,62 @@
+import java.text.NumberFormat;
+
+public class VideoGameCollection
+{
+ private VideoGame [] collection;
+ private int count;
+ private double totalCost;
+ 
+ //-----------------------------------------------------------------
+ // Constructor: Creates an initially empty collection.
+ //-----------------------------------------------------------------
+ 
+ public VideoGameCollection()
+ {
+ collection = new VideoGame[100];
+ count = 0;
+ totalCost = 0.0;
+ }
+ 
+ //-----------------------------------------------------------------
+ // Adds a Video Game to the collection, increasing the size of the
+ // collection array if necessary.
+ //-----------------------------------------------------------------
+ public void addVideoGame(String title, String publisher, String platform, int year,
+ double cost, boolean completed)
+ {
+ if (count == collection.length)
+ increaseSize();
+ collection[count] = new VideoGame(title, publisher, platform, year, cost, completed);
+ totalCost += cost;
+ count++;
+ }
+ 
+ //-----------------------------------------------------------------
+ // Returns a report describing the Video Game collection.
+ //-----------------------------------------------------------------
+ public String toString()
+ {
+ NumberFormat fmt = NumberFormat.getCurrencyInstance();
+ String report = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+ report += "My Video Game Collection\n\n";
+ report += "Number of Video Games: " + count + "\n";
+ report += "Total cost: " + fmt.format(totalCost) + "\n";
+ report += "Average cost: " + fmt.format(totalCost/count);
+ report += "\n\nVideo Game List:\n\n";
+ for (int game = 0; game < count; game++)
+ report += collection[game].toString() + "\n";
+ return report;
+ }
+ 
+ //-----------------------------------------------------------------
+ // Increases the capacity of the collection by creating a
+ // larger array and copying the existing collection into it.
+ //-----------------------------------------------------------------
+ private void increaseSize()
+ {
+ VideoGame[] temp = new VideoGame[collection.length * 2];
+ for (int game = 0; game < collection.length; game++)
+ temp[game] = collection[game];
+ collection = temp;
+ }
+}
