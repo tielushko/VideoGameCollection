@@ -1,0 +1,31 @@
+import java.text.NumberFormat;
+
+public class VideoGame {
+    private String title, publisher, platform;
+    private int year;
+    private double cost;
+    private boolean completed;   
+    
+    //new Video Game with information
+    public VideoGame (String title, String publisher, String platform, int year, double cost, boolean completed) {
+       this.title = title;
+       this.publisher = publisher;
+       this.platform = platform;
+       this.year = year;
+       this.cost = cost;
+       this.completed = completed;
+       }
+    
+    //string description of the dvd   
+    public String toString() {
+       NumberFormat fmt = NumberFormat.getCurrencyInstance();
+       String description;
+       description = fmt.format(cost) + "\t" + year + "\t";
+       description += title + "\t" + publisher + "\t" + platform;
+       if (completed == true)
+       description += "\t" + "DONE!";
+       else 
+       description += "\t" + "Unfinished :(";
+       return description;
+    }
+}//end class
