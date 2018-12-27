@@ -1,0 +1,21 @@
+public class VideoGameDriver
+{
+ //-----------------------------------------------------------------
+ // Creates a VideoGameCollection object and adds some VideoGames to it. Prints
+ // reports on the status of the collection.
+ //-----------------------------------------------------------------
+ public static void main(String[] args)
+ {
+ VideoGameCollection games = new VideoGameCollection();
+ games.addVideoGame("The Witcher", "CD Project RED", "PC", 2007,
+24.95, true);
+ games.addVideoGame("The Witcher 3: Wild Hunt", "CD Project RED", "PC",  2015, 19.95,
+false);
+ games.addVideoGame("Mass Effect", "BioWare", "PC", 2008, 15.95, false);
+ games.addVideoGame("The Elder Scrolls 5: Skyrim", "Bethesda", "PC", 2011, 17.50,
+false);
+ games.addVideoGame("Metro 2033", "AAA-games", "PC", 2009, 19.95,
+true);
+  System.out.println(games);
+ }
+}
